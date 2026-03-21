@@ -553,3 +553,112 @@ nav a.active {
     color: #38bdf8;
     font-weight: 500; /* garante mesmo peso */
 }
+
+
+/* ===========================
+   NOVO CONTATO (LAYOUT MODERNO)
+=========================== */
+
+.contato-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* ESQUERDA */
+.info-contato h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.info-contato span {
+    color: #38bdf8;
+}
+
+.info-contato p {
+    color: #9ca3af;
+    margin-bottom: 20px;
+    max-width: 500px;
+}
+
+.info-contato .item {
+    margin-bottom: 15px;
+}
+
+.info-contato strong {
+    display: block;
+    color: #38bdf8;
+    margin-bottom: 5px;
+}
+
+/* DIREITA (FORM) */
+.form-box {
+    background: #1f2937;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    transition: 0.3s;
+}
+
+.form-box:hover {
+    transform: translateY(-5px);
+}
+
+.form-box h3 {
+    margin-bottom: 20px;
+}
+
+/* INPUTS */
+.form-box input,
+.form-box textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    background: #111827;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    color: white;
+}
+
+.form-box input:focus,
+.form-box textarea:focus {
+    border: 1px solid #38bdf8;
+    box-shadow: 0 0 10px rgba(56,189,248,0.5);
+    outline: none;
+}
+
+/* CAMPOS LADO A LADO */
+.duplo {
+    display: flex;
+    gap: 10px;
+}
+
+/* BOTÃO */
+.form-box button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background: #38bdf8;
+    color: #0f172a;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form-box button:hover {
+    background: #0ea5e9;
+    transform: translateY(-3px);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .contato-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .duplo {
+        flex-direction: column;
+    }
+}
