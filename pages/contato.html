@@ -1,17 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
-    <title>Contato</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- CSS PADRÃO DO SITE -->
+    <title>Contato | Crystian Gomes</title>
+
+    <meta name="description" content="Página de contato">
+    <meta name="keywords" content="contato, desenvolvedor, portfólio">
+    <meta name="author" content="Crystian Gomes">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Ícones -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
 <header class="header">
+
     <div class="nav-container">
+
         <div class="logo">Crystian</div>
 
         <ul class="nav-list">
@@ -19,48 +41,138 @@
             <li><a href="projetos.html">Projetos</a></li>
             <li><a href="contato.html" class="ativo">Contato</a></li>
         </ul>
+
     </div>
+
 </header>
 
-<!-- HEADER DA PÁGINA -->
+<!-- ================= HEADER DA PÁGINA ================= -->
+
 <section class="page-header">
+
     <h2>Contato</h2>
-    <p>Entre em contato comigo para ideias, projetos ou dúvidas.</p>
+
+    <p>
+        Entre em contato comigo para ideias,
+        projetos, parcerias ou dúvidas.
+    </p>
+
 </section>
 
-<!-- CONTEÚDO -->
-<section class="pagina">
-    <div class="container contato-container">
+<!-- ================= CONTEÚDO ================= -->
 
-        <div class="card-contato">
+<section class="pagina">
+
+    <div class="container contato-grid">
+
+        <!-- ESQUERDA -->
+
+        <div class="info-contato">
+
+            <h2>
+                Vamos criar algo
+                <span>incrível juntos.</span>
+            </h2>
+
+            <p>
+                Estou disponível para novos projetos,
+                oportunidades e colaborações.
+                Entre em contato através do formulário
+                ou pelas minhas redes sociais.
+            </p>
+
+            <div class="item">
+                <strong>Email</strong>
+                <span>crystian.com.br@gmail.com</span>
+            </div>
+
+            <div class="item">
+                <strong>GitHub</strong>
+                <span>github.com/Crystiangomes</span>
+            </div>
+
+            <div class="social-links">
+
+                <a href="https://github.com/Crystiangomes" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+
+                <a href="https://www.instagram.com/crystiangomes_/" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+            
+            </div>
+
+        </div>
+
+        <!-- DIREITA -->
+
+        <div class="form-box">
+
+            <h3>Envie uma mensagem</h3>
+
             <form class="form-contato">
 
                 <div class="grupo-form">
+
                     <label>Nome</label>
-                    <input type="text" name="nome" placeholder="Digite seu nome" required>
+
+                    <input
+                    type="text"
+                    name="nome"
+                    placeholder="Digite seu nome"
+                    required>
+
                 </div>
 
                 <div class="grupo-form">
+
                     <label>Email</label>
-                    <input type="email" name="email" placeholder="Digite seu email" required>
+
+                    <input
+                    type="email"
+                    name="email"
+                    placeholder="Digite seu email"
+                    required>
+
                 </div>
 
                 <div class="grupo-form">
+
                     <label>Mensagem</label>
-                    <textarea name="mensagem" rows="5" placeholder="Digite sua mensagem..." required></textarea>
+
+                    <textarea
+                    name="mensagem"
+                    rows="6"
+                    placeholder="Digite sua mensagem..."
+                    required></textarea>
+
                 </div>
 
-                <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+                <button type="submit" class="btn-enviar">
+                    Enviar Mensagem
+                </button>
 
             </form>
+
         </div>
 
     </div>
+
 </section>
 
+<!-- ================= FOOTER ================= -->
+
 <footer class="footer">
-    <p>© 2026 Crystian Gomes - Todos os direitos reservados</p>
+
+    <p>
+        © 2026 Crystian Gomes • Desenvolvedor Web
+    </p>
+
 </footer>
+
 <script src="../js/script.js"></script>
+
 </body>
 </html>
