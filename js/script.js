@@ -1,78 +1,122 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    console.log("JS carregado");
+    const contactForm = document.getElementById("contactForm");
 
-    const form = document.querySelector(".form-contato");
+    if (!contactForm) return;
 
-    if (!form) {
-        console.log("Form não encontrado");
-        return;
-    }
+    contactForm.addEventListener("submit", async (e) => {
 
-    form.addEventListener("submit", function(e) {
         e.preventDefault();
 
-        const nome = form.querySelector('input[name="nome"]');
-        const email = form.querySelector('input[name="email"]');
-        const mensagem = form.querySelector('textarea[name="mensagem"]');
+        const nome = document.getElementById("nome").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const mensagem = document.getElementById("mensagem").value.trim();
 
-        // 🔥 SEGURANÇA (evita erro null)
-        if (!nome || !email || !mensagem) {
-            console.log("Campos não encontrados");
-            mostrarMensagem("Erro interno no formulário.", "erro");
+        // Validação do nome
+        if (nome.length < 3) {
+            mostrarMensagem("Digite um nome válido.", "erro");
             return;
         }
 
-        // 🔥 REMOVE espaços
-        const nomeValue = nome.value.trim();
-        const emailValue = email.value.trim();
-        const mensagemValue = mensagem.value.trim();
+        // Validação do e-mail
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        // 🔥 VALIDAÇÃO
-        if (!nomeValue || !emailValue || !mensagemValue) {
-            mostrarMensagem("Preencha todos os campos!", "erro");
+        if (!emailRegex.test(email)) {
+            mostrarMensagem("Digite um e-mail válido.", "erro");
             return;
         }
 
-        // validação de email melhor
-        const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!emailValido.test(emailValue)) {
-            mostrarMensagem("Digite um email válido!", "erro");
+        // Validação da mensagem
+        if (mensagem.length < 10) {
+            mostrarMensagem(
+                "A mensagem deve ter pelo menos 10 caracteres.",
+                "erro"
+            );
             return;
         }
 
-        // 🔥 SUCESSO
-        mostrarMensagem("Mensagem enviada com sucesso!", "sucesso");
+        const formData = new FormData(contactForm);
 
-        form.reset();
+        try {
+
+            const response = await fetch(
+                "https://api.web3forms.com/submit",
+                {
+                    method: "POST",
+                    body: formData
+                }
+            );
+
+            const result = await response.json();
+
+            if (result.success) {
+
+                mostrarMensagem(
+                    "Mensagem enviada com sucesso!",
+                    "sucesso"
+                );
+
+                contactForm.reset();
+
+            } else {
+
+                mostrarMensagem(
+                    "Erro ao enviar a mensagem.",
+                    "erro"
+                );
+
+            }
+
+        } catch (error) {
+
+            mostrarMensagem(
+                "Erro de conexão. Tente novamente.",
+                "erro"
+            );
+
+        }
+
     });
 
     function mostrarMensagem(texto, tipo) {
+
         let msg = document.querySelector(".msg-feedback");
 
         if (!msg) {
+
             msg = document.createElement("div");
             msg.classList.add("msg-feedback");
+
+            msg.style.position = "fixed";
+            msg.style.top = "20px";
+            msg.style.right = "20px";
+            msg.style.padding = "15px 25px";
+            msg.style.borderRadius = "10px";
+            msg.style.color = "#fff";
+            msg.style.fontWeight = "600";
+            msg.style.zIndex = "9999";
+
             document.body.appendChild(msg);
         }
 
         msg.textContent = texto;
+
+        msg.style.background =
+            tipo === "erro"
+                ? "#ef4444"
+                : "#22c55e";
+
         msg.style.display = "block";
         msg.style.opacity = "1";
 
-        msg.style.background = tipo === "erro" ? "#ef4444" : "#22c55e";
-
-        // animação leve
-        msg.style.transform = "translateY(0)";
-        
         setTimeout(() => {
+
             msg.style.opacity = "0";
-            msg.style.transform = "translateY(-10px)";
-        }, 2500);
 
-        setTimeout(() => {
-            msg.style.display = "none";
+            setTimeout(() => {
+                msg.style.display = "none";
+            }, 300);
+
         }, 3000);
     }
 

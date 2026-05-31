@@ -112,49 +112,66 @@
 
             <h3>Envie uma mensagem</h3>
 
-            <form class="form-contato">
+<form
+    id="contactForm"
+    class="form-contato"
+    action="https://api.web3forms.com/submit"
+    method="POST">
 
-                <div class="grupo-form">
+    <input
+        type="hidden"
+        name="access_key"
+        value="cc9ecade-b3ac-43e6-aabb-fa66798ee3b3">
 
-                    <label>Nome</label>
+    <input
+        type="hidden"
+        name="subject"
+        value="Nova mensagem do Portfólio">
 
-                    <input
-                    type="text"
-                    name="nome"
-                    placeholder="Digite seu nome"
-                    required>
+    <div class="grupo-form">
 
-                </div>
+        <label for="nome">Nome</label>
 
-                <div class="grupo-form">
+        <input
+            id="nome"
+            type="text"
+            name="name"
+            placeholder="Digite seu nome"
+            required>
 
-                    <label>Email</label>
+    </div>
 
-                    <input
-                    type="email"
-                    name="email"
-                    placeholder="Digite seu email"
-                    required>
+    <div class="grupo-form">
 
-                </div>
+        <label for="email">Email</label>
 
-                <div class="grupo-form">
+        <input
+            id="email"
+            type="email"
+            name="email"
+            placeholder="Digite seu email"
+            required>
 
-                    <label>Mensagem</label>
+    </div>
 
-                    <textarea
-                    name="mensagem"
-                    rows="6"
-                    placeholder="Digite sua mensagem..."
-                    required></textarea>
+    <div class="grupo-form">
 
-                </div>
+        <label for="mensagem">Mensagem</label>
 
-                <button type="submit" class="btn-enviar">
-                    Enviar Mensagem
-                </button>
+        <textarea
+            id="mensagem"
+            name="message"
+            rows="6"
+            placeholder="Digite sua mensagem..."
+            required></textarea>
 
-            </form>
+    </div>
+
+    <button type="submit" class="btn-enviar">
+        Enviar Mensagem
+    </button>
+
+</form>
 
         </div>
 
