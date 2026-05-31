@@ -1,6 +1,6 @@
 # Portfólio - Crystian
 
-Meu portfólio pessoal desenvolvido com HTML e CSS.
+Meu portfólio pessoal desenvolvido com HTML CSS e JS.
 
 ## Sobre o Projeto
 ## 📐 Planejamento – Wireframe
